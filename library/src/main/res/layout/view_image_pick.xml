@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recyclerView"
+    android:choiceMode="singleChoice"
+    android:divider="@null"
+    android:fadingEdge="none"
+    android:listSelector="@android:color/transparent"
+    android:scrollbarStyle="outsideOverlay"
+    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+    app:spanCount="5"
+    android:overScrollMode="never"/>
+
+

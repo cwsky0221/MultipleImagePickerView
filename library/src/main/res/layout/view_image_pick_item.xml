@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="62dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/ll_add"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:background="@drawable/ic_bg_virtual_d2d3de_6">
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/ic_add" />
+
+        <TextView
+            android:id="@+id/tv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="11sp"
+            android:textColor="#2D2A29"
+            android:text="0/5"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_default"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_bg_pick">
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:indeterminateDrawable="@drawable/ic_upload_progressbar"
+                android:indeterminateDuration="1000"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/iv_upload_fail"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_upload_fail"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/tv_upload_prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/progress_bar"
+                android:textSize="12sp"
+                android:textColor="#FFFFFFFF"
+                android:text="上传中…"/>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_del"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_pic_del"
+        android:visibility="gone"/>
+
+</RelativeLayout>
