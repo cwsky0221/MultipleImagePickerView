@@ -28,8 +28,8 @@ mImagePickerView.setMaxNum(10)//最大显示数
 ```
 
 # 效果
+![动图](https://github.com/cwsky0221/MultipleImagePickerView/blob/main/demo.gif?raw=true)
 ![效果图](http://yximstatic.clouderwork.com/1a7c8c4e-23db-41ba-aabd-5cd5ed92b725.jpg)
-
 # 感谢：
 [鲁班](https://github.com/Curzibn/Luban)  
 [Glide](https://github.com/bumptech/glide)  
