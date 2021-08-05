@@ -9,20 +9,30 @@
 # 使用方式：
 ```
 MultipleImagePickerView mImagePickerView = findViewById(R.id.imagePickerView);
-mImagePickerView.setMaxNum(10)//最大显示数
-        .setItemCount(3)//每行显示数
-        .setSpace(SizeUtils.dp2px(8))//边距
-        .setCompress(true)//是否压缩
+mImagePickerView.setMaxNum(10)
+        .setItemCount(3)
+        .setSpace(SizeUtils.dp2px(8))
+        .setCompress(true)
         .init(MainActivity.this, false, true, new OnMultPickerImageListener() {
             @Override
             public void onPickerImageChange() {
-                //图片选择回调
+                //图片选择变化
             }
 
             @Override
             public void onImageBrowser(ArrayList<String> imagePaths, int currentPosition) {
-                //图片点击浏览
                 Toast.makeText(MainActivity.this,"图片点击:"+currentPosition,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onImageUpload(String fileUri, OnImageUploadListener listener) {
+                //模拟上传到服务器
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        listener.onUploadSuccess(fileUri);
+                    }
+                },3000);
             }
         });
 ```
