@@ -2,7 +2,6 @@ package com.cwsky.multiimagepicker;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -23,15 +22,15 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cwsky.multiimagepicker.bean.PickerImageBean;
+import com.cwsky.multiimagepicker.callback.OnImageUploadListener;
 import com.cwsky.multiimagepicker.callback.OnItemDragClick;
+import com.cwsky.multiimagepicker.callback.OnMultPickerImageListener;
 import com.cwsky.multiimagepicker.utils.ImageCompressUtils;
 import com.cwsky.multiimagepicker.utils.ImageLoadUtils;
 import com.cwsky.multiimagepicker.utils.ImagePickerUtils;
 import com.cwsky.multiimagepicker.utils.ScreenUtils;
 import com.cwsky.multiimagepicker.utils.SizeUtils;
 import com.cwsky.multiimagepicker.utils.SpacesItemDecoration;
-
-import com.cwsky.multiimagepicker.callback.OnMultPickerImageListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,7 +56,6 @@ public class MultipleImagePickerView extends LinearLayout {
     private int padding = SizeUtils.dp2px(32);//左右边距
     private int itemCount = 5;//每行个数
     private boolean isCompress = true;//是否压缩图片，默认压缩
-    private Handler handler = new Handler();
 
     public MultipleImagePickerView(Context context) {
         this(context, null);
@@ -470,15 +468,20 @@ public class MultipleImagePickerView extends LinearLayout {
      * @param fileUri
      * @param imageUuid
      */
-    public void uploadFile(final String fileUri, String imageUuid) {
-        //模拟上传到服务器
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                String uploadFileUrl = fileUri;
-                updateUploadStatus(imageUuid, uploadFileUrl, Status.SUCCESS);
-            }
-        },3000);
+    public void uploadFile(final String fileUri,final String imageUuid) {
+        if(mOnPickerImageListener!=null){
+            mOnPickerImageListener.onImageUpload(fileUri,new OnImageUploadListener(){
+                @Override
+                public void onUploadSuccess(String uploadFileUrl) {
+                    updateUploadStatus(imageUuid, uploadFileUrl, Status.SUCCESS);
+                }
+
+                @Override
+                public void onUploadFail() {
+                    updateUploadStatus(imageUuid, "", Status.FAIL);
+                }
+            });
+        }
 
     }
 

@@ -16,4 +16,9 @@ public interface OnMultPickerImageListener {
      * 图片点击放大
      */
     void onImageBrowser(ArrayList<String> imagePaths,int currentPosition);
+
+    /**
+     * 图片上传
+     */
+    void onImageUpload(String fileUri,OnImageUploadListener listener);
 }
