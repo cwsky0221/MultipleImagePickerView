@@ -7,6 +7,11 @@
 5、支持图片压缩  
 
 # 使用方式：
+
+```
+implementation 'io.github.cwsky0221.multiplepicker:multiplepicker:1.1.0'
+```
+
 ```
 MultipleImagePickerView mImagePickerView = findViewById(R.id.imagePickerView);
 mImagePickerView.setMaxNum(10)
@@ -26,7 +31,7 @@ mImagePickerView.setMaxNum(10)
 
             @Override
             public void onImageUpload(String fileUri, OnImageUploadListener listener) {
-                //模拟上传到服务器
+                //自定义上传方式， 此处模拟上传到服务器后回调
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
